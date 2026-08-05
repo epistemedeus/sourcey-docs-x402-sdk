@@ -1,0 +1,22 @@
+{
+  "schema": "sourcey.x402.docs.delivery.verification.v1",
+  "verified_at": "2026-08-05T21:27:55Z",
+  "snapshot_sha256": "ff98699ec1687d88292318029285b7852a8f5f4addac196b0fac0be98ab1aed5",
+  "samedaydesk_deployment_commit": "226c94e2cd2ea0755e5b01c3f4dc4b36d867e613",
+  "checks": {
+    "sourcey_build": "pass",
+    "samedaydesk_application_build": "pass",
+    "internal_link_and_fragment_crawl": "pass: 46 routes",
+    "public_copy_dash_scan": "pass",
+    "governed_audit": "pass: 9/9 checks",
+    "runx_receipt": "valid: digest, content address, and production Ed25519 signature"
+  },
+  "receipt_ref": "runx:receipt:sha256:b6d815ea372ff33825cff1ec527c126db725aa80f096c52521f0a21bae585538",
+  "live_checks": {
+    "https://samedaydesk.com/docs/x402-sdk/": "200 text/html; charset=utf-8",
+    "https://samedaydesk.com/docs/x402-sdk/api/pkg-http.html": "200 text/html; charset=utf-8",
+    "https://samedaydesk.com/x402": "200 text/html; charset=utf-8",
+    "https://samedaydesk.com/resources.html": "200 text/html; charset=utf-8",
+    "https://samedaydesk.com/llms.txt": "200 text/plain; charset=utf-8"
+  }
+}

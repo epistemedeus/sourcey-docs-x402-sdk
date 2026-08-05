@@ -1,0 +1,95 @@
+skill: sourcey-x402-docs-audit
+version: "0.1.0"
+
+catalog:
+  kind: skill
+  audience: public
+  visibility: public
+  role: canonical
+
+runx:
+  mutating: false
+  idempotency:
+    key: godoc_sha256
+  scopes:
+    - docs.read
+  policy:
+    data_classification: public_oss_api_metadata
+    network:
+      allowed: []
+      forbidden:
+        - any network access
+        - posting or publishing documents
+        - sending messages or assigning tasks
+    verifier_notes:
+      - Recomputes the public SDK surface from the committed Sourcey godoc snapshot.
+      - Checks that both upstream and product evidence are pinned to immutable commits.
+      - Checks that the docs and product share the declared SameDayDesk durable home.
+      - Reads only local public data. A failed assertion is a governed stop.
+  artifacts:
+    emits:
+      - sourcey_x402_docs_audit_result
+
+harness:
+  cases:
+    - name: x402-sdk-meets-bar
+      runner: default
+      inputs:
+        module_path: github.com/x402-foundation/x402/go/v2
+        sdk_version: 2.21.0
+        pinned_commit: 34cb6bd04c88f4333f56b9c778d3d35df997379c
+        license: Apache-2.0
+        public_url: https://samedaydesk.com/docs/x402-sdk/
+        product_url: https://samedaydesk.com/x402
+        product_repo: https://github.com/epistemedeus/x402-url-extractor
+        product_commit: 518f5333fb96316426289ce7795e059eb0c3f336
+        relationship_evidence_url: https://raw.githubusercontent.com/epistemedeus/x402-url-extractor/518f5333fb96316426289ce7795e059eb0c3f336/package.json
+        min_apis: 20
+      expect:
+        status: sealed
+    - name: impossible-minimum-stops
+      runner: default
+      inputs:
+        module_path: github.com/x402-foundation/x402/go/v2
+        sdk_version: 2.21.0
+        pinned_commit: 34cb6bd04c88f4333f56b9c778d3d35df997379c
+        license: Apache-2.0
+        public_url: https://samedaydesk.com/docs/x402-sdk/
+        product_url: https://samedaydesk.com/x402
+        product_repo: https://github.com/epistemedeus/x402-url-extractor
+        product_commit: 518f5333fb96316426289ce7795e059eb0c3f336
+        relationship_evidence_url: https://raw.githubusercontent.com/epistemedeus/x402-url-extractor/518f5333fb96316426289ce7795e059eb0c3f336/package.json
+        min_apis: 100000
+      expect:
+        status: failure
+
+runners:
+  default:
+    default: true
+    type: cli-tool
+    command: /usr/bin/env
+    args:
+      - node
+      - run.mjs
+    scopes:
+      - docs.read
+    policy:
+      reads:
+        - committed godoc snapshot and caller-supplied public metadata
+      calls: []
+      writes: []
+      disallows:
+        - network access
+        - posting or publishing documents
+        - executing caller-supplied code
+    inputs:
+      module_path: { type: string, required: true }
+      sdk_version: { type: string, required: true }
+      pinned_commit: { type: string, required: true }
+      license: { type: string, required: true }
+      public_url: { type: string, required: true }
+      product_url: { type: string, required: true }
+      product_repo: { type: string, required: true }
+      product_commit: { type: string, required: true }
+      relationship_evidence_url: { type: string, required: true }
+      min_apis: { type: number, required: false }

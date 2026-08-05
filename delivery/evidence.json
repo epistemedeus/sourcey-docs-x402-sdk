@@ -1,0 +1,105 @@
+{
+  "schema": "sourcey.x402.docs.delivery.evidence.v1",
+  "bounty": "Frantic #33 - Publish Sourcey docs for a maintained OSS library ($20)",
+  "summary": "Generated and published a Sourcey documentation site for the Go SDK in x402-foundation/x402, pinned at commit 34cb6bd04c88f4333f56b9c778d3d35df997379c and covering 1077 exported functions, types, and methods across 37 packages. SameDayDesk is an independent production integrator, and the relationship is proven by its live x402 gateway, public product page, and commit-pinned gateway manifest declaring five x402 packages. A governed runx audit passed 9 of 9 checks and the production-signed receipt verifies valid.",
+  "public_url": "https://samedaydesk.com/docs/x402-sdk/",
+  "target": {
+    "name": "x402",
+    "ecosystem": "Go SDK in a multi-language payment protocol monorepo",
+    "module_path": "github.com/x402-foundation/x402/go/v2",
+    "sdk_version": "2.21.0",
+    "repo": "https://github.com/x402-foundation/x402",
+    "pinned_commit": "34cb6bd04c88f4333f56b9c778d3d35df997379c",
+    "pinned_commit_date": "2026-08-04T20:33:46+02:00",
+    "license": "Apache-2.0",
+    "maintained": true
+  },
+  "project_relationship": {
+    "role": "SameDayDesk is an independent production integrator, not the x402 Foundation or an upstream maintainer.",
+    "product_url": "https://samedaydesk.com/x402",
+    "product_repo": "https://github.com/epistemedeus/x402-url-extractor",
+    "product_commit": "518f5333fb96316426289ce7795e059eb0c3f336",
+    "relationship_evidence_url": "https://raw.githubusercontent.com/epistemedeus/x402-url-extractor/518f5333fb96316426289ce7795e059eb0c3f336/package.json",
+    "declared_x402_packages": [
+      "@x402/core",
+      "@x402/evm",
+      "@x402/express",
+      "@x402/extensions",
+      "@x402/mcp"
+    ],
+    "live_manifest_url": "https://x402-url-extractor-production.up.railway.app/.well-known/x402",
+    "live_manifest_resources": 7,
+    "inbound_links": [
+      "https://samedaydesk.com/x402",
+      "https://samedaydesk.com/resources.html",
+      "https://samedaydesk.com/llms.txt",
+      "https://samedaydesk.com/sitemap.xml"
+    ]
+  },
+  "tooling": {
+    "generator": "Sourcey",
+    "generator_version": "3.6.5",
+    "adapter": "native godoc snapshot",
+    "snapshot_sha256": "ff98699ec1687d88292318029285b7852a8f5f4addac196b0fac0be98ab1aed5",
+    "commands": [
+      "npm run snapshot",
+      "npm run build",
+      "node scripts/normalize-public-copy.mjs"
+    ],
+    "display_normalization": "Elides only the literal bodies of AVMPaywallTemplate, EVMPaywallTemplate, and SVMPaywallTemplate. Symbol names, docs, source positions, and immutable source links are retained."
+  },
+  "api_surface": {
+    "packages": 37,
+    "consts": 524,
+    "vars": 90,
+    "funcs": 379,
+    "types": 431,
+    "methods": 267,
+    "fields": 1026,
+    "api_total_funcs_types_methods": 1077,
+    "top_level_total": 1424,
+    "all_exported_total": 2717,
+    "minimum_required": 20
+  },
+  "pages": {
+    "authored": [
+      "introduction.html",
+      "samedaydesk-production.html",
+      "typescript-seller.html",
+      "go-quickstart.html",
+      "version-and-scope.html"
+    ],
+    "api_index": "api.html",
+    "api_package_pages": 37,
+    "logical_routes_scanned": 46
+  },
+  "governed_receipt": {
+    "receipt_ref": "runx:receipt:sha256:b6d815ea372ff33825cff1ec527c126db725aa80f096c52521f0a21bae585538",
+    "issuer_type": "ci",
+    "issuer_kid": "epistemedeus-secret-catcher",
+    "decision": "pass",
+    "checks_passed": 9,
+    "checks_total": 9,
+    "runx_verify": "valid"
+  },
+  "documentation_gaps": {
+    "packages_without_package_comment": 27,
+    "package_count": 37,
+    "functions_without_doc_comment": 8,
+    "function_count": 379,
+    "types_without_doc_comment": 3,
+    "type_count": 431,
+    "methods_without_doc_comment": 53,
+    "method_count": 267,
+    "conventional_go_examples_in_snapshot": 0,
+    "readme_inventory_gap": "go/README.md highlights Gin but omits current Echo and net/http middleware, the MCP package, EVM upto, EVM batch settlement, and several extensions present at the pinned commit."
+  },
+  "verification": {
+    "samedaydesk_deployment_commit": "226c94e2cd2ea0755e5b01c3f4dc4b36d867e613",
+    "application_build": "pass",
+    "internal_link_and_fragment_crawl": "46 routes, pass",
+    "public_copy_dash_scan": "pass",
+    "generated_site_size": "9.6 MB",
+    "pre_normalization_site_size": "28 MB"
+  }
+}

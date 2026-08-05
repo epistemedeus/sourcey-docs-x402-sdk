@@ -1,0 +1,14 @@
+{
+  "name": "samedaydesk-x402-sourcey-docs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "snapshot": "sourcey godoc --module ./source/go --packages './...' --exclude 'github.com/x402-foundation/x402/go/v2/legacy,github.com/x402-foundation/x402/go/v2/test' --out godoc.json && node scripts/normalize-godoc-snapshot.mjs",
+    "build": "sourcey build -c sourcey.config.ts -o dist",
+    "postbuild": "node scripts/normalize-public-copy.mjs"
+  },
+  "devDependencies": {
+    "sourcey": "3.6.5"
+  }
+}
