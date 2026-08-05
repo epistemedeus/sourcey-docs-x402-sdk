@@ -75,6 +75,7 @@
   },
   "governed_receipt": {
     "receipt_ref": "runx:receipt:sha256:b6d815ea372ff33825cff1ec527c126db725aa80f096c52521f0a21bae585538",
+    "runx_version": "runx-cli 0.6.13",
     "issuer_type": "ci",
     "issuer_kid": "epistemedeus-secret-catcher",
     "decision": "pass",
@@ -101,5 +102,16 @@
     "public_copy_dash_scan": "pass",
     "generated_site_size": "9.6 MB",
     "pre_normalization_site_size": "28 MB"
-  }
+  },
+  "observations": [
+    "Repository and pin: the maintained third-party target is https://github.com/x402-foundation/x402 at commit 34cb6bd04c88f4333f56b9c778d3d35df997379c from 2026-08-04. The documented Go module is github.com/x402-foundation/x402/go/v2 at SDK version 2.21.0.",
+    "License: the pinned upstream repository is Apache-2.0 licensed. SameDayDesk is an independent production integrator and does not claim to be the x402 Foundation or an upstream maintainer.",
+    "Adapter and configuration: Sourcey 3.6.5 uses its native godoc snapshot adapter in sourcey.config.ts, with the pinned upstream commit, base URL /docs/x402-sdk, five authored integration pages, and a 37-package Go API tab.",
+    "Generation commands: npm run snapshot runs sourcey godoc against ./source/go and then the deterministic snapshot normalizer; npm run build runs sourcey build and the public-output normalizer.",
+    "Page list: introduction, SameDayDesk production relationship, TypeScript seller setup, Go quickstart, version and scope, the Go API index, and 37 package pages. The internal crawl successfully scanned 46 routes.",
+    "Coverage: the audit recomputed 524 constants, 90 variables, 379 functions, 431 types, 267 methods, and 1026 fields. The bounty count of functions, types, and methods is 1077, exceeding the minimum of 20.",
+    "Product relationship: SameDayDesk's gateway package manifest at commit 518f5333fb96316426289ce7795e059eb0c3f336 declares five x402 packages, the live product page links to these docs, and the live gateway manifest advertises seven paid resources.",
+    "Governed validation used exact command output runx-cli 0.6.13. The audit passed 9 of 9 checks, receipt runx:receipt:sha256:b6d815ea372ff33825cff1ec527c126db725aa80f096c52521f0a21bae585538 was sealed, and runx verify returned valid for its digest, content address, and production Ed25519 signature.",
+    "Maintainer-facing gaps measured from the snapshot: 27 of 37 packages have no package comment; 8 of 379 functions, 3 of 431 types, and 53 of 267 methods have no doc comment; zero conventional Go examples appear; and go/README.md omits several current middleware, mechanism, MCP, and extension packages."
+  ]
 }

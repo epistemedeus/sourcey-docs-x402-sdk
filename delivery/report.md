@@ -88,7 +88,8 @@ the project. The evidence file records the exact denominators and pin.
   deployment commit `226c94e2cd2ea0755e5b01c3f4dc4b36d867e613`.
 - An internal link and fragment crawl successfully scanned all 46 local routes.
 - The public-output scan found no em dash or en dash characters.
-- The governed audit passed all 9 checks and recomputed 1,077 APIs across 37
+- The governed audit ran with exact version output `runx-cli 0.6.13`, passed all
+  9 checks, and recomputed 1,077 APIs across 37
   packages.
 - `runx verify` validated the digest, content address, and production Ed25519
   signature of receipt
